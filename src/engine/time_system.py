@@ -32,7 +32,10 @@ class ScheduledEvent:
 
 class TimeSystem:
     def __init__(self):
-        self.time = GameTime()
+        self.time = GameTime(
+            hour=6,  # Start at 6 AM
+            time_scale=5.0  # 1 game hour = 12 real seconds at 60 FPS
+        )
         self.events: List[ScheduledEvent] = []
         self.accumulated_time = 0.0
         

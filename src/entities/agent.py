@@ -1,8 +1,9 @@
 import pygame
+import hashlib
 from typing import Tuple, Optional, List
 from dataclasses import dataclass
-from ..ai.needs import NeedsSystem
-from ..ai.brain import AgentBrain, Decision
+from src.ai.needs import NeedsSystem
+from src.ai.brain import AgentBrain, Decision
 
 @dataclass
 class AgentState:
@@ -28,7 +29,6 @@ class Agent:
 
     def _generate_personality_color(self) -> Tuple[int, int, int]:
         """Generate a unique color based on the agent's name"""
-        import hashlib
         # Generate a hash from the name
         name_hash = hashlib.md5(self.name.encode()).hexdigest()
         # Use the first 6 characters for RGB values
@@ -42,11 +42,8 @@ class Agent:
         # Update needs
         self.needs.update(delta_time)
         
-        # Make decisions every few seconds
+        # Update decision timer
         self.state.last_decision_time += delta_time
-        if self.state.last_decision_time >= 3.0:  # Decision interval
-            self._make_decision(time_of_day, available_buildings)
-            self.state.last_decision_time = 0.0
         
         # Move towards destination if one exists
         if self.state.destination:

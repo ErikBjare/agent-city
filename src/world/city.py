@@ -1,7 +1,7 @@
 from typing import List, Tuple, Optional, Dict
 import pygame
-from ..entities.building import Building, BUILDING_TYPES
-from ..entities.agent import Agent
+from src.entities.building import Building, BUILDING_TYPES
+from src.entities.agent import Agent
 
 class City:
     def __init__(self, width: int, height: int):
@@ -90,7 +90,25 @@ class City:
     def update(self, delta_time: float, time_of_day: str):
         """Update all agents in the city"""
         for agent in self.agents:
+            # First handle agent's basic update
             agent.update(delta_time, time_of_day, self.available_building_types)
+            
+            # Handle agent decisions
+            if agent.state.last_decision_time >= 1.0:
+                decision = agent._make_decision(time_of_day, self.available_building_types)
+                agent.state.last_decision_time = 0.0
+                
+                # If we got a decision with a building type, find nearest building
+                if decision and decision.target_building_type:
+                    nearest = self.get_nearest_building_of_type(agent.state.position, decision.target_building_type)
+                    if nearest:
+                        agent.set_destination(nearest.entrance, decision.action)
+                elif agent.state.current_action in ["idle", "wandering"]:
+                    # Occasionally make agents wander
+                    import random
+                    if random.random() < 0.1:  # 10% chance each decision time
+                        random_pos = self.get_random_position()
+                        agent.set_destination(random_pos, "wandering")
             
             # Check if agent has reached a building
             if not agent.state.destination:  # Agent has stopped moving

@@ -48,78 +48,97 @@ Agents make decisions based on:
 
 ### Requirements
 ```bash
-pip install -r requirements.txt
+pip install pygame>=2.5.0
 ```
 
 ### Running the Game
 ```bash
-python src/main.py
+PYTHONPATH=. python src/main.py
 ```
 
 ## Project Structure
 ```text
 src/
-├── __init__.py
-├── main.py                 # Main game entry point
-├── engine/                 # Core game engine
+├── __init__.py           # Package initialization
+├── main.py              # Main game entry point
+├── engine/              # Core game engine
 │   ├── __init__.py
-│   ├── game.py            # Main game loop and setup
-│   ├── renderer.py        # Rendering utilities
-│   └── time_system.py     # Day/night cycle and scheduling
-├── entities/              # Game entities
+│   ├── game.py         # Main game loop and setup
+│   └── time_system.py  # Day/night cycle and scheduling
+├── entities/            # Game entities
 │   ├── __init__.py
-│   ├── agent.py          # Agent class with needs and behavior
-│   └── building.py       # Building types and interactions
-├── world/                 # World components
+│   ├── agent.py        # Agent class with needs and behavior
+│   └── building.py     # Building types and interactions
+├── world/              # World components
 │   ├── __init__.py
-│   ├── city.py           # City management and layout
-│   └── location.py       # Location utilities
-└── ai/                    # AI and decision making
+│   └── city.py        # City management and layout
+└── ai/                 # AI and decision making
     ├── __init__.py
-    ├── brain.py          # Agent decision making
-    ├── needs.py          # Need system
-    └── schedule.py       # Schedule management
+    ├── brain.py       # Agent decision making
+    └── needs.py       # Need system
 ```
 
-## Future Enhancements
+## Next Steps
 
-1. **Advanced AI Integration**
-   - Integration with LLMs for more complex agent behavior
-   - Memory and learning from past experiences
-   - Social relationships between agents
+### Debug and Fix
+- [x] Fix window display issues
+- [ ] Add error handling and logging
+- [ ] Implement proper cleanup on exit
 
-2. **Extended City Features**
-   - More building types (offices, schools, shops)
-   - Public transportation system
-   - Weather system affecting agent behavior
-   - Dynamic city growth
+### Basic Improvements
+- [ ] Add collision detection between agents
+- [ ] Implement proper pathfinding
+- [ ] Add more visual feedback for agent states
 
-3. **Enhanced Visualization**
-   - Better graphics and animations
-   - Path visualization
-   - Mood indicators
-   - Building occupancy visualization
+### Enhanced Features
+- [ ] Add more building types
+- [ ] Implement agent relationships
+- [ ] Add day/night cycle effects
 
-4. **Agent Customization**
-   - Personality traits affecting decisions
-   - Jobs and daily routines
-   - Relationships and social networks
-   - Personal preferences for activities
+### UI and Visualization
+- [ ] Add proper UI elements
+- [ ] Implement agent inspection window
+- [ ] Add city statistics display
+- [ ] Building management interface
+- [ ] City planning tools
+- [ ] Statistics and graphs
+- [ ] Better graphics and animations
+- [ ] Path visualization
+- [ ] Mood indicators
+- [ ] Building occupancy visualization
 
-5. **Simulation Features**
-   - Economy system
-   - Resource management
-   - Events and celebrations
-   - Customizable schedules
+### Advanced AI Integration
+- [ ] Integration with LLMs for complex agent behavior
+- [ ] Memory and learning from past experiences
+- [ ] Social relationships between agents
 
-6. **UI Improvements**
-   - Agent inspection window
-   - Building management interface
-   - City planning tools
-   - Statistics and graphs
+### Extended City Features
+- [ ] More building types (offices, schools, shops)
+- [ ] Public transportation system
+- [ ] Weather system affecting agent behavior
+- [ ] Dynamic city growth
 
-7. **Technical Improvements**
-   - Pathfinding optimization
-   - Multi-threading for better performance
-   - Save/load system
-   - Mod support
+### Agent Customization
+- [ ] Personality traits affecting decisions
+- [ ] Jobs and daily routines
+- [ ] Relationships and social networks
+- [ ] Personal preferences for activities
+
+### Simulation Features
+- [ ] Economy system
+- [ ] Resource management
+- [ ] Events and celebrations
+- [ ] Customizable schedules
+
+### Technical Improvements
+- [ ] Pathfinding optimization
+- [ ] Multi-threading for better performance
+- [ ] Save/load system
+
+## Contributing
+
+This is an early prototype. Feel free to open issues or submit pull requests.
+
+## License
+
+MIT License

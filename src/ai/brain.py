@@ -1,6 +1,5 @@
 from typing import Optional, Dict, List, Tuple
 from dataclasses import dataclass
-from ..entities.building import BUILDING_TYPES
 
 @dataclass
 class Decision:
