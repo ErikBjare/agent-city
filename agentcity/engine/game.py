@@ -1,6 +1,7 @@
-import pygame
-from typing import Optional
 from dataclasses import dataclass
+
+import pygame
+
 
 @dataclass
 class GameConfig:
@@ -9,8 +10,9 @@ class GameConfig:
     fps: int = 60
     title: str = "Agent City"
 
+
 class Game:
-    def __init__(self, config: Optional[GameConfig] = None):
+    def __init__(self, config: GameConfig | None = None):
         print("Initializing pygame...")
         pygame.init()
         self.config = config or GameConfig()
