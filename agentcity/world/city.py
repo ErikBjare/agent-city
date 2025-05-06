@@ -1,7 +1,7 @@
 from typing import List, Tuple, Optional, Dict
 import pygame
-from src.entities.building import Building, BUILDING_TYPES
-from src.entities.agent import Agent
+from ..entities.building import Building, BUILDING_TYPES
+from ..entities.agent import Agent
 
 class City:
     def __init__(self, width: int, height: int):

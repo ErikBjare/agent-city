@@ -1,10 +1,10 @@
 import sys
 import traceback
 import pygame
-from src.engine.game import Game, GameConfig
-from src.engine.time_system import TimeSystem
-from src.world.city import City
-from src.entities.agent import Agent
+from .engine.game import Game, GameConfig
+from .engine.time_system import TimeSystem
+from .world.city import City
+from .entities.agent import Agent
 
 class AgentCity(Game):
     def __init__(self):

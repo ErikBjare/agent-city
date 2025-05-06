@@ -2,8 +2,8 @@ import pygame
 import hashlib
 from typing import Tuple, Optional, List
 from dataclasses import dataclass
-from src.ai.needs import NeedsSystem
-from src.ai.brain import AgentBrain, Decision
+from ..ai.needs import NeedsSystem
+from ..ai.brain import AgentBrain, Decision
 
 @dataclass
 class AgentState:

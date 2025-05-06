@@ -1,0 +1,19 @@
+[project]
+name = "agentcity"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Erik Bjäreholt",email = "erik@bjareho.lt"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pygame"
+]
+
+[project.scripts]
+agentcity = 'agentcity.main:main'
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
